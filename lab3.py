@@ -50,13 +50,14 @@ def edit_products():
     for elem in n_list:
         print('%3s%20s%10s%20s' % (elem[0], elem[1], elem[2], elem[3]))
     
-    print('Введите номер товара, количество которого хотите изменить:')
-    num = input('>> ')
+    print('Введите номера товара через пробел, количество которого хотите изменить:')
+    nums = []
+    nums = input('>> ').split(' ')
     print('Введите число, которое хотите прибавить к количеству:')
     quantity = input('>> ')
 
     for elem in n_list:
-        if elem[0] == num:
+        if nums.count(elem[0]):
             print('Товар: {}'.format(elem)) 
             elem[3] = str(int(elem[3]) + int(quantity)) 
             print('Измененный товар: {}'.format(elem))
